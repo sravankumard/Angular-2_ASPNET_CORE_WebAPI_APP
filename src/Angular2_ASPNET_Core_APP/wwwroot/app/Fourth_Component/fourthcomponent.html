@@ -9,7 +9,32 @@
     <li *ngFor="let hero of heroes">{{hero.FirstName}}</li>
 </ul>
 
+<h3>Books:</h3>
+<ul>
+    <li *ngFor="let book of books">{{book.FirstName}}</li>
+</ul>
+
+<h3>Movies:</h3>
+<ul>
+    <li *ngFor="let movie of movies">{{movie.FirstName}}</li>
+</ul>
+
+<h3>values:</h3>
+<ul>
+    <li *ngFor="let value of samplevalues">
+     <img src="http://lorempixel.com/g/400/200/" /><br/>
+     <a href="http://google.com" >{{value.firstName}}</a> <br />
+     <a href="http://google.com">{{value.city}}</a>
+
+    
+    </li>
+</ul>
+
+
+
 <label>New hero name: <input #newHeroName /></label>
 <button (click)="addHero(newHeroName.value); newHeroName.value=''">Add Hero</button>
+
+<button (click)="GetData();">Get Data</button>
 
 <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>

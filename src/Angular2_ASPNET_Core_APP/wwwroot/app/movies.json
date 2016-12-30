@@ -1,0 +1,28 @@
+﻿{
+  "data": [
+    {
+      "ID": 1,
+      "FirstName": "sravan",
+      "LastName": "kumar",
+      "City": "HYD"
+    },
+    {
+      "ID": 2,
+      "FirstName": "srava",
+      "LastName": "kmar",
+      "City": "HY"
+    },
+    {
+      "ID": 3,
+      "FirstName": "sravn",
+      "LastName": "kuar",
+      "City": "YD"
+    },
+    {
+      "ID": 4,
+      "FirstName": "srvn",
+      "LastName": "kuarm",
+      "City": "YD"
+    }
+  ]
+}

@@ -13,13 +13,47 @@ var sampleservice_service_1 = require('../Services/sampleservice.service');
 var FourthComponent = (function () {
     function FourthComponent(heroService) {
         this.heroService = heroService;
+        this.samplevalues = [];
         this.mode = 'Observable';
     }
-    FourthComponent.prototype.ngOnInit = function () { this.getHeroes(); };
+    FourthComponent.prototype.ngOnInit = function () {
+        this.getHeroes();
+        this.getBooksAndMovies();
+        this.getAPIData();
+        // this.getValues();
+    };
+    //getHeroes() {
+    //    this.heroService.getHeroes()
+    //        .subscribe(
+    //        hero =>this.heroes = hero,
+    //        error => this.errorMessage = <any>error);
+    //}
     FourthComponent.prototype.getHeroes = function () {
         var _this = this;
-        this.heroService.getHeroes()
-            .subscribe(function (heroes) { return _this.heroes = heroes; }, function (error) { return _this.errorMessage = error; });
+        this.heroService.getHeroes().subscribe(function (data) { return _this.heroes = data; }, function (error) { return _this.errorMessage = error; });
+    };
+    //addHero(name: string) {
+    //    if (!name) { return; }
+    //    this.heroService.addHero(name)
+    //        .subscribe(
+    //        hero => this.heroes.push(hero),
+    //        error => this.errorMessage = <any>error);
+    //}
+    FourthComponent.prototype.getBooksAndMovies = function () {
+        var _this = this;
+        this.heroService.getBooksAndMovies().subscribe(function (data) {
+            _this.books = data[0];
+            _this.movies = data[1];
+        });
+    };
+    //getValues() {
+    //    this.heroService.getValues().subscribe(
+    //        data => this.stringvalues = data,
+    //        error => this.errorMessage = <any>error);
+    //}
+    FourthComponent.prototype.getAPIData = function () {
+        var _this = this;
+        this.heroService.getAPIData().subscribe(function (res) { return _this.samplevalues = res; }, function (error) { return _this.errorMessage = error; });
     };
     FourthComponent = __decorate([
         core_1.Component({

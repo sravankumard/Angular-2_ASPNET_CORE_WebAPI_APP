@@ -19,11 +19,24 @@ var HeroService = (function () {
     HeroService.prototype.someMethod = function () {
         return "test";
     };
+    HeroService.prototype.getBooksAndMovies = function () {
+        return Rx_1.Observable.forkJoin(this.http.get('./app/books.json').map(this.extractData).catch(this.handleError), this.http.get('./app/movies.json').map(this.extractData).catch(this.handleError));
+    };
     HeroService.prototype.getHeroes = function () {
         return this.http.get(this.heroesUrl)
             .map(this.extractData)
             .catch(this.handleError);
     };
+    HeroService.prototype.getAPIData = function () {
+        return this.http.get('api/Values')
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    //getValues(): Observable<any[]> {
+    //    return this.http.get('api/Values')
+    //         .map(res => res.json())
+    //        .catch(this.handleError);
+    //}
     HeroService.prototype.extractData = function (res) {
         var body = res.json();
         return body.data || {};
